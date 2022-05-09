@@ -25,35 +25,37 @@ public class Principal {
       option = scan.nextShort();
 
       if (option == 1) {
-        System.out.println("Entre com a idade:");
-        short age = scan.nextShort();
 
+        System.out.println("Entre com a idade:");
+        int age = scan.nextInt();
         if (age < 18) {
           System.out.println("Pessoa cliente menor de idade, catraca liberada!");
           countMinorAge += 1;
-        } else if (age >= 18 && age < 50) {
+        }
+        if (age >= 18 && age < 50) {
           System.out.println("Pessoa adulta, catraca liberada!");
           countAdultAge += 1;
-        } else {
+        }
+        if (age > 49) {
           System.out.println("Pessoa adulta a partir de 50, catraca liberada!");
           countSeniorAge += 1;
         }
-      }
 
+        ;
+      }
       if (option == 2) {
         int total = countMinorAge + countAdultAge + countSeniorAge;
-
         System.out.println("----- Quantidade -----" + "\nmenores: " + countMinorAge + "\nadultas: "
             + countAdultAge + "\na partir de 50: " + countSeniorAge + "\n\n----- Percentual -----"
             + "\nmenores: " + percentual(countMinorAge, total) + "%" + "\nadultas: "
             + percentual(countAdultAge, total) + "%" + "\na partir de 50: "
-            + percentual(countSeniorAge, total) + "%" + "\n\nTOTAL:" + total);
+            + percentual(countSeniorAge, total) + "%" + "\n\nTOTAL: " + total);
         break;
+      } else {
+        System.out.println("Entre com uma opção válida");
 
       }
-      if (option != 1 || option != 2) {
-        System.out.println("Entre com uma opção válida!");
-      }
+
     }
 
   }
@@ -61,8 +63,12 @@ public class Principal {
   // https://www.devmedia.com.br/forum/decimal-format/567155 Referência para a função abaixo.
   static String percentual(int number, int total) {
     DecimalFormat df = new DecimalFormat("0.00");
+    if (number == 0) {
+      return "0";
+    }
 
-    float result = (number / total) * 100F;
+    float result = (number * 100F) / total;
+
     return df.format(result);
   }
 }
