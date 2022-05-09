@@ -45,12 +45,9 @@ public class Principal {
       }
       if (option == 2) {
         int total = countMinorAge + countAdultAge + countSeniorAge;
-        System.out.println("----- Quantidade -----" + "\nmenores: " + countMinorAge + "\nadultas: "
-            + countAdultAge + "\na partir de 50: " + countSeniorAge + "\n\n----- Percentual -----"
-            + "\nmenores: " + percentual(countMinorAge, total) + "%" + "\nadultas: "
-            + percentual(countAdultAge, total) + "%" + "\na partir de 50: "
-            + percentual(countSeniorAge, total) + "%" + "\n\nTOTAL: " + total);
+        relatory(countAdultAge, countMinorAge, countSeniorAge, total);
         break;
+
       } else {
         System.out.println("Entre com uma opção válida");
 
@@ -58,6 +55,14 @@ public class Principal {
 
     }
 
+  }
+
+  static void relatory(int countMinorAge, int countAdultAge, int countSeniorAge, int total) {
+    System.out.println("----- Quantidade -----" + "\nmenores: " + countMinorAge + "\nadultas: "
+        + countAdultAge + "\na partir de 50: " + countSeniorAge + "\n\n----- Percentual -----"
+        + "\nmenores: " + percentual(countMinorAge, total) + "%" + "\nadultas: "
+        + percentual(countAdultAge, total) + "%" + "\na partir de 50: "
+        + percentual(countSeniorAge, total) + "%" + "\n\nTOTAL: " + total);
   }
 
   // https://www.devmedia.com.br/forum/decimal-format/567155 Referência para a função abaixo.
